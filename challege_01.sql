@@ -5,18 +5,6 @@
 -- employee ID and order year. For now, don’t worry about understanding how this query does what it
 -- does; I’ll explain the query clauses one at a time, and gradually build this query.
 
-use TSQLV4
-
-
-SELECT empid, 
-YEAR(orderdate) AS orderyear, 
-COUNT(*) AS numorders
-FROM Sales.Orders
-WHERE custid = 71
-GROUP BY empid, YEAR(orderdate)
-HAVING COUNT(*) > 1
-ORDER BY empid, orderyear
-
 
 
 
