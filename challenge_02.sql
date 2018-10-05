@@ -6,14 +6,16 @@
 
 Select * from Sales.Orders
 
-select empid, custid, orderdate from Sales.Orders order by empid, custid
+select empid, 
+Count(distinct custid), 
+Year(orderdate) as _year 
+from Sales.Orders 
+order by empid, 
+custid
 
-select count(distinct custid) as _distinct_custermers, 
-YEAR(orderdate) as _order_year, 
-empid 
-from Sales.Orders
-group by empid, Year(orderdate)
-order by empid, custid
+
+
+
 
 -- customer_count | year | emp_id
 -- 10				2014     1
