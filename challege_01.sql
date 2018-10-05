@@ -8,6 +8,14 @@
 
 
 
+-- If you try to refer to an attribute that does not participate in the GROUP BY list (such as freight) and not
+-- as an input to an aggregate function in any clause that is processed after the GROUP BY clause, you
+-- get an error—in such a case, there’s no guarantee that the expression will return a single value per
+-- group. For example, the following query will fail.
+
+
+
+
 
 
 
