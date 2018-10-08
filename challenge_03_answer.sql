@@ -7,12 +7,15 @@ SELECT productid, productname, categoryid,
 CASE categoryid 
 	WHEN 1 THEN 'Beverages'
 	WHEN 2 THEN 'Condiments'
-	WHEN 3 THEN ''
-	WHEN 4 THEN ''
-	WHEN 5 THEN ''
-	WHEN 6 THEN ''
-	WHEN 7 THEN ''
-	WHEN 8 THEN ''
+	WHEN 3 THEN 'Confections'
+	WHEN 4 THEN 'Dairy Products'
+	WHEN 5 THEN 'Grains/Cereals'
+	WHEN 6 THEN 'Meat/Poultry'
+	WHEN 7 THEN 'Produce'
+	WHEN 8 THEN 'Seafood'
+	ELSE 'Unknown Category'
 END AS categoryname
 FROM Production.Products 
+
+
 
