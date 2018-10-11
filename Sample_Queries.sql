@@ -59,3 +59,17 @@ WHERE region <> N'WA';
 -- because the expression evaluates to UNKNOWN in all rows—both those in which the value is present
 -- and those in which the value is missing (is NULL). The following query returns an empty set.
 
+SELECT custid, country, region, city
+FROM Sales.Customers
+WHERE region IS NULL
+
+SELECT custid, country, region, city
+FROM Sales.Customers
+WHERE region <> N'WA' or region IS NULL;
+
+SELECT
+orderid,
+YEAR(orderdate) AS orderyear,
+orderyear + 1 AS nextyear
+FROM Sales.Orders;
+
