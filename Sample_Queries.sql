@@ -44,3 +44,18 @@ ORDER BY orderdate DESC;
 SELECT TOP (0.5) PERCENT orderid, orderdate, custid, empid
 FROM Sales.Orders
 ORDER BY orderdate DESC;
+
+SELECT custid, country, region, city
+FROM Sales.Customers
+WHERE region = N'WA';
+
+-- The following query attempts to return all customers for whom the region is different than WA.
+
+SELECT custid, country, region, city
+FROM Sales.Customers
+WHERE region <> N'WA';
+
+-- If you want to return all rows for which region is NULL, do not use the predicate region = NULL,
+-- because the expression evaluates to UNKNOWN in all rows—both those in which the value is present
+-- and those in which the value is missing (is NULL). The following query returns an empty set.
+
