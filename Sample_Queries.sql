@@ -71,5 +71,32 @@ SELECT
 orderid,
 YEAR(orderdate) AS orderyear,
 orderyear + 1 AS nextyear
+FROM Sales.Orders;           -- this query gives error
+
+SELECT col1, col2
+FROM dbo.T1
+WHERE col1 <> 0 AND col2/col1 > 2;  -- this query gives error
+
+SELECT col1, col2
+FROM dbo.T1
+WHERE
+CASE
+WHEN col1 = 0 THEN 'no' -- or 'yes' if row should be returned
+WHEN col2/col1 > 2 THEN 'yes'
+ELSE 'no'
+END = 'yes';
+
+SELECT col1, col2
+FROM dbo.T1
+WHERE (col1 > 0 AND col2 > 2*col1) OR (col1 < 0 AND col2 < 2*col1);
+
+
+SELECT
+orderid,
+YEAR(orderdate) AS orderyear
 FROM Sales.Orders;
+
+
+
+
 
