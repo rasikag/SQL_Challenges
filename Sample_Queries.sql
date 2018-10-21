@@ -214,3 +214,35 @@ ORDER BY avgfreight DESC
 OFFSET 0 ROWS FETCH FIRST 3 ROWS ONLY;
 
 
+select * from Sales.Orders order by custid
+
+select custid, orderdate,orderid ,
+ROW_NUMBER() OVER(Partition by custid order by orderdate,orderid) as rownum
+from Sales.Orders
+order by custid, rownum
+
+
+-- ANSI SQL-92 Syntax
+
+SELECT C.custid, E.empid  FROM Sales.Customers AS C 
+CROSS JOIN HR.Employees AS E ORDER BY C.custid;
+
+-- 89 Syntax
+
+SELECT C.custid, E.empid
+FROM Sales.Customers AS C, HR.Employees AS E;
+
+SELECT 
+	*
+	FROM HR.Employees AS E1
+	CROSS JOIN HR.Employees AS E2
+
+IF OBJECT_ID('dbo.Digits', 'U') IS NOT NULL DROP TABLE dbo.Digits;
+CREATE TABLE dbo.Digits(digit INT NOT NULL PRIMARY KEY);
+
+
+
+INSERT INTO dbo.Digits(digit)
+VALUES (0),(1),(2),(3),(4),(5),(6),(7),(8),(9);
+
+SELECT digit FROM dbo.Digits;
